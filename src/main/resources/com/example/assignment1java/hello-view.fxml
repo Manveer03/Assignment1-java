@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 
 <VBox alignment="CENTER" xmlns:fx="http://javafx.com/fxml">
@@ -24,10 +24,21 @@
             </TableColumn>
         </columns>
     </TableView>
-    <Button id="addTaskButton" text="Add Task"/>
-    <Button id="editTaskButton" text="Edit Task"/>
-    <Button id="deleteTaskButton" text="Delete Task"/>
-    <ComboBox fx:id="filterComboBox" promptText="Filter by Status">
 
-    </ComboBox>
+    <VBox alignment="CENTER" xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.assignment1java.TaskHelloController">
+        <HBox alignment="CENTER">
+            <Button text="Add Task" onAction="#addTask" />
+            <Button text="Edit Task" onAction="#editTask" />
+            <Button text="Delete Task" onAction="#deleteTask" />
+        </HBox>
+
+        <ComboBox fx:id="filterComboBox" promptText="Filter by Status" onAction="#filterTasks">
+            <items>
+                <String fx:value="All" />
+                <String fx:value="Pending" />
+                <String fx:value="Completed" />
+            </items>
+        </ComboBox>
+    </VBox>
+
 </VBox>
