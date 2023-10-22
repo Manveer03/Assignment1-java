@@ -1,16 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.assignment1java.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
+<VBox alignment="CENTER" xmlns:fx="http://javafx.com/fxml">
+    <TableView fx:id="taskTable" prefWidth="400" prefHeight="300">
+        <columns>
+            <TableColumn text="Task Name">
+                <cellValueFactory>
+                    <PropertyValueFactory property="name" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Description">
+                <cellValueFactory>
+                    <PropertyValueFactory property="description" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Status">
+                <cellValueFactory>
+                    <PropertyValueFactory property="status" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
+    <Button id="addTaskButton" text="Add Task"/>
+    <Button id="editTaskButton" text="Edit Task"/>
+    <Button id="deleteTaskButton" text="Delete Task"/>
+    <ComboBox fx:id="filterComboBox" promptText="Filter by Status">
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+    </ComboBox>
 </VBox>
